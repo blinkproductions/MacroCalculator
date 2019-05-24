@@ -1,40 +1,27 @@
 // This is where you define your function prototypes
 #pragma once
-
+#pragma warning(disable:4996)
 
 //defining constants
 const int calorie_per_fat = 9;
 const int calorie_per_carb = 4;
 const int calorie_per_protein = 4;
+const int shred_factor = 600;
 
 enum ScaleTranslations {
 	LOSE = 14,
 	MAINTAIN = 15,
 	GAIN = 16
 };
-
-//function prototypes
+void PrintDate();
 void WelcomePrompt();
-double GetUserWeight();
+int GetUserWeight();
 int GetUserLossOption();
-ScaleTranslations GetScaleForWeight();
-void CalculateUserCalories(int choice, double weight);
-void GetUserDailyMacros(double weight);
+double ProteinMultiplier();
+double FatMultiplier();
+int CalculateCarbIntake(int calories_in_protein, int calories_in_fat, int calorie_intake);
+void CalculateUserCalories(int choice, int weight);
+void GetUserDailyMacros(int weight, int calorie_intake, int choice);
 
-/*
-Constants needed:
-	const for totCal for fat
-	const for totCal for carbs
-	const for totCal for protein
 
-Functions needed:
-output to a file function
-get weight
-get options (losing, maintaining, gaining)
-get fatCal
-get carbCal
-get proteinCal
-get scaleIntensity
-
-*/
 
